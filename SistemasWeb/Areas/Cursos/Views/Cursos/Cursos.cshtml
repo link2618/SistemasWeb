@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewData["Title"] = "Cursos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cursos</h1>
+
+<form asp-area="Cursos" asp-controller="Cursos" asp-action="Cursos" method="get">
+    <div class="row">
+        <div class="col-xs-8 col-md-3">
+            <input id="filtrar" name="Search" placeholder="Buscar Cursos" class="form-control" />
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-info">Buscar</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<br />
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-3">
+            <a data-toggle="modal" onclick="" data-target="#modalRegistrar" class="btn btn-info text-white">Crear Curso</a>
+        </div>
+
+        <form asp-area="Cursos" asp-controller="Cursos" asp-action="Cursos" method="get">
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="number" name="registros" class="form-control" min="1" max="50" step="1" value="10" />
+                </div>
+
+                <div class="col-md-3">
+                    <input type="submit" class="btn btn-success" value="N Registros" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Input.Nombre)*@
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Input.Descripcion)*@
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Input.Estado)*@
+            </th>
+            <th>
+                Opciones
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @*@foreach (var item in Model.List)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    <form asp-area="Categorias" asp-controller="Categorias" asp-action="UpdateEstado" method="post">
+                        <input type="hidden" name="id" value="@item.CategoriaID" />
+
+                        @if (item.Estado)
+                        {
+                            <input type="submit" class="btn-sm btn-success text-light" value="Activo" />
+                        }
+                        else
+                        {
+                            <input type="submit" class="btn-sm btn-danger text-light" value="Inactivo" />
+                        }
+                    </form>
+                </td>
+                <td>
+                    @{
+                        var data = JsonConvert.SerializeObject(item);
+                        <a data-toggle="modal" onclick="categorias.EditCategoria(@data)" data-target="#modal1" class="btn btn-info text-white">Editar</a>
+                        <a data-toggle="modal" data-target="#ModalEliminar" onclick="categorias.GetCategoria(@data)" class="btn btn-danger text-white">Eliminar</a>
+                    }
+                </td>
+            </tr>
+        }*@
+    </tbody>
+</table>
+
+<div>
+    @*Resultados @Html.Raw(Model.Pagi_info)
+    <br />
+    @Html.Raw(Model.Pagi_navegacion)*@
+</div>
+
+<partial name="_ModalRegistrar">
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial") 
+}
