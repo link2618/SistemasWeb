@@ -4,3 +4,16 @@
 // Write your JavaScript code.
 
 var categorias = new Categorias();
+
+var curso = new Cursos();
+
+var cursoImage = (evt) => {
+    curso.archivo(evt, "cursoImage")
+}
+
+var principal = new Principal();
+
+$().ready(() => {
+    let URLactual = window.location.pathname;
+    principal.userLink(URLactual);
+});

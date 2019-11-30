@@ -1,1 +1,5 @@
 ﻿
+
+class Cursos extends Uploadpicture {
+
+}
