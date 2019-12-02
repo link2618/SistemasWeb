@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SistemasWeb.Areas.Cursos.Models
@@ -21,8 +23,11 @@ namespace SistemasWeb.Areas.Cursos.Models
         [RegularExpression(@"^[0-9]+([.][0-9]+)?$", ErrorMessage = "El precio no es correcto.")]
         public decimal Costo { get; set; }
         public Boolean Estado { get; set; }
+        [Required(ErrorMessage = "Seleccione una Categoria.")]
         public int CategoriaID { get; set; }
         public byte[] Image { get; set; }
+        [JsonIgnore]
+        [IgnoreDataMember]
         public TCategoria Categoria { get; set; }
     }
 }

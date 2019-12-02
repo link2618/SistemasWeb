@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using SistemasWeb.Areas.Categorias.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +18,6 @@ namespace SistemasWeb.Models
         public string search { get; set; }
         public IFormFile AvatarImage { get; set; }
         public string ErrorMessage { get; set; }
-    }
+        public IEnumerable<SelectListItem> Categorias { get; set; }
+}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemasWeb.Areas.Categorias.Models;
 using SistemasWeb.Data;
 
@@ -23,10 +24,10 @@ namespace SistemasWeb.Library
 
             try
             {
-                if (categoria.CategoriaID.Equals(0))
+                if (categoria.CategoriaID.Equals(0))// agregar categoria
                 {
                     this.context.Add(categoria);
-                }else
+                }else //actualizar categoria
                 {
                     this.context.Update(categoria);
                 }
@@ -111,6 +112,22 @@ namespace SistemasWeb.Library
             }
 
             return identityError;
+        }
+
+        public List<SelectListItem> getCategoria()
+        {
+            var _selectList = new List<SelectListItem>();
+            var categorias = this.context._TCategoria.Where(c => c.Estado.Equals(true)).ToList();
+
+            foreach (var item in categorias)
+            {
+                _selectList.Add(new SelectListItem {
+                    Text = item.Nombre,
+                    Value = item.CategoriaID.ToString()
+                });
+            }
+
+            return _selectList;
         }
     }
 }

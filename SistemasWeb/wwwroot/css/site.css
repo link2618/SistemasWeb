@@ -46,6 +46,10 @@ input[type="file"]{
     position: absolute;
     z-index: -1;
 }
+
+.tdImg{
+    width: 100px;
+}
 /* Provide sufficient contrast against white background */
 a {
     color: #0366d6;

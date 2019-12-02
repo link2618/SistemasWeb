@@ -1,4 +1,4 @@
-﻿
+﻿@model  DataPaginador<TCursos>
 @{
     ViewData["Title"] = "Cursos";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -25,7 +25,7 @@
 <div class="form-group">
     <div class="row">
         <div class="col-md-3">
-            <a data-toggle="modal" onclick="" data-target="#modalRegistrar" class="btn btn-info text-white">Crear Curso</a>
+            <a data-toggle="modal" onclick="curso.limpiar()" data-target="#modalRegistrar" class="btn btn-info text-white">Crear Curso</a>
         </div>
 
         <form asp-area="Cursos" asp-controller="Cursos" asp-action="Cursos" method="get">
@@ -47,13 +47,16 @@
     <thead>
         <tr>
             <th>
-                @*@Html.DisplayNameFor(model => model.Input.Nombre)*@
+                @Html.DisplayNameFor(model => model.Input.Image)
             </th>
             <th>
-                @*@Html.DisplayNameFor(model => model.Input.Descripcion)*@
+                @Html.DisplayNameFor(model => model.Input.Nombre)
             </th>
             <th>
-                @*@Html.DisplayNameFor(model => model.Input.Estado)*@
+                @Html.DisplayNameFor(model => model.Input.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Input.Estado)
             </th>
             <th>
                 Opciones
@@ -62,9 +65,16 @@
     </thead>
 
     <tbody>
-        @*@foreach (var item in Model.List)
+        @{ 
+            var cat = JsonConvert.SerializeObject(Model.Categorias);
+        }
+        @foreach (var item in Model.List)
         {
+            var image = "data:image/jpg;base64," + Convert.ToBase64String(item.Image, 0, item.Image.Length);
             <tr>
+                 <td class="tdImg">
+                    <img class='img-fluid img-thumbnail circle' src="@image" />
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)
                 </td>
@@ -72,8 +82,8 @@
                     @Html.DisplayFor(modelItem => item.Descripcion)
                 </td>
                 <td>
-                    <form asp-area="Categorias" asp-controller="Categorias" asp-action="UpdateEstado" method="post">
-                        <input type="hidden" name="id" value="@item.CategoriaID" />
+                    <form asp-area="Cursos" asp-controller="Cursos" asp-action="UpdateEstado" method="post">
+                        <input type="hidden" name="id" value="@item.CursoID" />
 
                         @if (item.Estado)
                         {
@@ -88,19 +98,19 @@
                 <td>
                     @{
                         var data = JsonConvert.SerializeObject(item);
-                        <a data-toggle="modal" onclick="categorias.EditCategoria(@data)" data-target="#modal1" class="btn btn-info text-white">Editar</a>
-                        <a data-toggle="modal" data-target="#ModalEliminar" onclick="categorias.GetCategoria(@data)" class="btn btn-danger text-white">Eliminar</a>
+                        <a data-toggle="modal" onclick="curso.EditCurso(@data, @cat)" data-target="#modalRegistrar" class="btn btn-info text-white">Editar</a>
+                        <a data-toggle="modal" data-target="#ModalEliminar" onclick="" class="btn btn-danger text-white">Eliminar</a>
                     }
                 </td>
             </tr>
-        }*@
+        }
     </tbody>
 </table>
 
 <div>
-    @*Resultados @Html.Raw(Model.Pagi_info)
+    Resultados @Html.Raw(Model.Pagi_info)
     <br />
-    @Html.Raw(Model.Pagi_navegacion)*@
+    @Html.Raw(Model.Pagi_navegacion)
 </div>
 
 <partial name="_ModalRegistrar">
