@@ -84,7 +84,7 @@ class Cursos extends Uploadpicture {
         console.log(cat);
     }
 
-    limpiar() {
+    limpiar(cat) {
         document.getElementById("myModalLabel").innerHTML = "Agregar Curso";
         $("#curNombre").val("");
         $("#curDescripcion").val("");
@@ -92,9 +92,50 @@ class Cursos extends Uploadpicture {
         $("#curCosto").val(0);
         $("#curEstado").prop("checked", true);
         $("#curCursoID").val("");
+        document.getElementById("mensaje").innerHTML = "";
 
         document.getElementById("cursoImage").innerHTML = ['<img class="cursoImage" src="', "/Images/logo-google.png", '"/>'].join('');
 
+        //Limpiando selector de categoria
+        //let x = document.getElementById("curCatergoria");
+        //x.options[0] = new Option(cat[0].Text, cat[0].Value);
+
+        //for (var i = 1; i < cat.length; i++) {
+        //    if (cat[i].Value == curso.CategoriaID) {
+        //        x.options[0] = new Option(cat[i].Text, cat[i].Value);
+        //        x.selectedIndex = 0;
+        //        j = i;
+        //    } else {
+        //        x.options[i] = new Option(cat[i].Text, cat[i].Value);
+        //    }
+
+        //}
+        
+        //var $miSelect = $('#curCatergoria');
+        //$miSelect.val($miSelect.children('option:first').val());
+        //$('#curCatergoria option[value="" , text("Seleccione una categoria")]');
+        //$("#curCatergoria").data("Seleccione una categoria", $("#curCatergoria").val(""));
+
+    }
+
+    GetCurso(curso) {
+        document.getElementById("titleCurso").innerHTML = curso.Nombre;
+        this.CursoID = curso.CursoID;
+    }
+
+    EliminarCurso() {
+        $.post(
+            "EliminarCurso",
+            { CursoID: this.CursoID },
+            (response) => {
+                var item = JSON.parse(response);
+                if (item.Description == "Done") {
+                    window.location.href = "Cursos";
+                } else {
+                    document.getElementById("mensajeEliminar").innerHTML = item.Description;
+                }
+            }
+        );
     }
 
 }

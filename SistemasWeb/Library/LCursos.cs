@@ -122,5 +122,29 @@ namespace SistemasWeb.Library
 
             return identityError;
         }
+
+        internal IdentityError DeleteCurso(int cursoID)
+        {
+            IdentityError identityError;
+            try
+            {
+                var curso = new TCursos
+                {
+                    CursoID = cursoID
+                };
+                context.Remove(curso);
+                context.SaveChanges();
+                identityError = new IdentityError { Description = "Done" };
+            }
+            catch (Exception e)
+            {
+                identityError = new IdentityError
+                {
+                    Code = "Error",
+                    Description = e.Message
+                };
+            }
+            return identityError;
+        }
     }
 }
