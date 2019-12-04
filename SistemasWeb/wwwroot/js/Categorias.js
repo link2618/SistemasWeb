@@ -42,7 +42,10 @@ class Categorias {
         document.getElementById("catNombre").value = "";
         document.getElementById("catDescripcion").value = "";
         document.getElementById("catEstado").checked = true;
-        document.getElementById("catCategoriaID").value(0);
+        document.getElementById("catCategoriaID").value = 0;
+        document.getElementById("mensaje").innerHTML = "";
+        document.getElementById("span1").innerHTML = "";
+        document.getElementById("span2").innerHTML = "";
     }
 
     GetCategoria(data)

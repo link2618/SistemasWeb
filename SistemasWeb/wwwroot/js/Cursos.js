@@ -84,7 +84,7 @@ class Cursos extends Uploadpicture {
         console.log(cat);
     }
 
-    limpiar(cat) {
+    limpiar() {
         document.getElementById("myModalLabel").innerHTML = "Agregar Curso";
         $("#curNombre").val("");
         $("#curDescripcion").val("");
@@ -93,28 +93,16 @@ class Cursos extends Uploadpicture {
         $("#curEstado").prop("checked", true);
         $("#curCursoID").val("");
         document.getElementById("mensaje").innerHTML = "";
+        document.getElementById("span1").innerHTML = "";
+        document.getElementById("span2").innerHTML = "";
+        document.getElementById("span3").innerHTML = "";
+        document.getElementById("span4").innerHTML = "";
+        document.getElementById("span5").innerHTML = "";
 
         document.getElementById("cursoImage").innerHTML = ['<img class="cursoImage" src="', "/Images/logo-google.png", '"/>'].join('');
 
         //Limpiando selector de categoria
-        //let x = document.getElementById("curCatergoria");
-        //x.options[0] = new Option(cat[0].Text, cat[0].Value);
-
-        //for (var i = 1; i < cat.length; i++) {
-        //    if (cat[i].Value == curso.CategoriaID) {
-        //        x.options[0] = new Option(cat[i].Text, cat[i].Value);
-        //        x.selectedIndex = 0;
-        //        j = i;
-        //    } else {
-        //        x.options[i] = new Option(cat[i].Text, cat[i].Value);
-        //    }
-
-        //}
-        
-        //var $miSelect = $('#curCatergoria');
-        //$miSelect.val($miSelect.children('option:first').val());
-        //$('#curCatergoria option[value="" , text("Seleccione una categoria")]');
-        //$("#curCatergoria").data("Seleccione una categoria", $("#curCatergoria").val(""));
+        document.getElementById("curCatergoria").selectedIndex = 0;
 
     }
 

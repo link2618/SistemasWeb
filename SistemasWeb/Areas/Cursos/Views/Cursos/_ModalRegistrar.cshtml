@@ -9,7 +9,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel">Agregar Curso</h4>
-                <button type="button" onclick="curso.limpiar(@cat)" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" onclick="curso.limpiar()" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -41,7 +41,7 @@
                                 <label asp-for="Input.Nombre" class="col-md-2 control-label"></label>
                                 <div class="col-md-10">
                                     <input asp-for="Input.Nombre" placeholder="Nombre" id="curNombre" class="form-control" />
-                                    <span asp-validation-for="Input.Nombre" class="text-danger"></span>
+                                    <span asp-validation-for="Input.Nombre" class="text-danger" id="span1"></span>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 <label asp-for="Input.Descripcion" class="col-md-2 control-label"></label>
                                 <div class="col-md-10">
                                     <input asp-for="Input.Descripcion" placeholder="Descripción" id="curDescripcion" class="form-control" />
-                                    <span asp-validation-for="Input.Descripcion" class="text-danger"></span>
+                                    <span asp-validation-for="Input.Descripcion" class="text-danger" id="span2"></span>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                                 <label asp-for="Input.Horas" class="col-md-2 control-label"></label>
                                 <div class="col-md-10">
                                     <input asp-for="Input.Horas" id="curHoras" placeholder="Horas" value="0" class="form-control" />
-                                    <span asp-validation-for="Input.Horas" class="text-danger"></span>
+                                    <span asp-validation-for="Input.Horas" class="text-danger" id="span3"></span>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                 <label asp-for="Input.Costo" class="col-md-2 control-label"></label>
                                 <div class="col-md-10">
                                     <input asp-for="Input.Costo" id="curCosto" placeholder="Costo" value="0.00" class="form-control" />
-                                    <span asp-validation-for="Input.Costo" class="text-danger"></span>
+                                    <span asp-validation-for="Input.Costo" class="text-danger" id="span4"></span>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                                 <div class="col-md-10">
                                     @Html.DropDownListFor(x => Model.Input.CategoriaID, new SelectList(Model.Categorias, "Value", "Text"), "Seleccione una categoria",
                                    htmlAttributes: new { @class = "form-control", id = "curCatergoria" })
-                                    <span asp-validation-for="Input.CategoriaID" class="text-danger"></span>
+                                    <span asp-validation-for="Input.CategoriaID" class="text-danger" id="span5"></span>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" onclick="curso.limpiar(@cat)" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-default" onclick="curso.limpiar()" data-dismiss="modal">Cancelar</button>
                     <button type="submit" onclick="curso.RegistrarCurso()" class="btn btn-primary">Guardar</button>
                 </div>
 
