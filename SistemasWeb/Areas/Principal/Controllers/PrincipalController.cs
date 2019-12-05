@@ -9,7 +9,7 @@ namespace SistemasWeb.Areas.Principal.Controllers
     [Area("Principal")]
     public class PrincipalController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Principal()
         {
             return View();
         }

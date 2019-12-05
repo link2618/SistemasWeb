@@ -139,7 +139,6 @@ E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razo
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
-E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Principal\Views\Principal\Index.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Categorias\Views\Categorias\Categoria.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Categorias\Views\_ViewImports.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Categorias\Views\Categorias\_ModalRegistrar.cshtml.g.cs
@@ -148,3 +147,4 @@ E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razo
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Cursos\Views\_ViewImports.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Cursos\Views\Cursos\_ModalRegistrar.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Cursos\Views\Cursos\_ModalEliminar.cshtml.g.cs
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Principal\Views\Principal\Principal.cshtml.g.cs
