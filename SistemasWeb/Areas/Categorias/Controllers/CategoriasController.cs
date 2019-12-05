@@ -15,7 +15,7 @@ using SistemasWeb.Models;
 namespace SistemasWeb.Areas.Categorias.Controllers
 {
     [Area("Categorias")]
-    //[Authorize]
+    [Authorize(Roles = "Admin")]
     public class CategoriasController : Controller
     {
         private TCategoria _categoria;
@@ -28,7 +28,8 @@ namespace SistemasWeb.Areas.Categorias.Controllers
             _signInManager = signInManager;
             _lcategoria = new LCategorias(context);
         }
-        
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Categoria(int id, string Search, int registros)
         {
             if (_signInManager.IsSignedIn(User))
@@ -70,6 +71,7 @@ namespace SistemasWeb.Areas.Categorias.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public String GetCategorias(DataPaginador<TCategoria> model) 
         {
@@ -85,6 +87,7 @@ namespace SistemasWeb.Areas.Categorias.Controllers
             
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult UpdateEstado(int id)
         {
@@ -92,6 +95,7 @@ namespace SistemasWeb.Areas.Categorias.Controllers
             return Redirect("/Categorias/Categoria?area=Categorias");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public string EliminarCategoria(int CategoriaID)
         {

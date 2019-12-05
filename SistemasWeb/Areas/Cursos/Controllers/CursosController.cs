@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using SistemasWeb.Models;
 namespace SistemasWeb.Areas.Cursos.Controllers
 {
     [Area("Cursos")]
+    [Authorize(Roles = "Admin")] //Se restringue el acceso al controlador completo
     public class CursosController : Controller
     {
         private LCursos _curso;
@@ -30,6 +32,7 @@ namespace SistemasWeb.Areas.Cursos.Controllers
             _curso = new LCursos(context, environment);
         }
 
+        [Authorize(Roles = "Admin")] // se restringe el acceso al metodo para mayor seguridad
         public IActionResult Cursos(int id, string Search, int Registros)
         {
             if (_signInManager.IsSignedIn(User))
@@ -73,6 +76,7 @@ namespace SistemasWeb.Areas.Cursos.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public String GetCurso(DataPaginador<TCursos> model)
         {
@@ -101,6 +105,7 @@ namespace SistemasWeb.Areas.Cursos.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult UpdateEstado(int id) 
         {
@@ -108,6 +113,7 @@ namespace SistemasWeb.Areas.Cursos.Controllers
             return Redirect("/Cursos/Cursos?area=Cursos");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public String EliminarCurso(int CursoID)
         {

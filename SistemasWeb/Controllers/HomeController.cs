@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SistemasWeb.Data;
 using SistemasWeb.Models;
 
 namespace SistemasWeb.Controllers
@@ -22,9 +23,11 @@ namespace SistemasWeb.Controllers
         //}
 
         //IServiceProvider _serviceProvider;
-        public HomeController(IServiceProvider serviceProvider)
+        public HomeController(ApplicationDbContext context, UserManager<IdentityUser> userManager,SignInManager<IdentityUser> signInManager, IServiceProvider serviceProvider)
         {
             //_serviceProvider = serviceProvider;
+            _signInManager = signInManager;
+
         }
 
         public IActionResult Index()
