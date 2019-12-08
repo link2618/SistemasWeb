@@ -26,8 +26,15 @@ using SistemasWeb.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\Views\_ViewImports.cshtml"
+using SistemasWeb.Areas.Cursos.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c340bfc84512473cc1fe44b7556ba35daf1eaf08", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e63c954834aad6b9fde1493ef922cc240da4e323", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

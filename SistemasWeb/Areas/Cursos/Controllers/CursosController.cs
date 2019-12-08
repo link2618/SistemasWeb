@@ -80,7 +80,7 @@ namespace SistemasWeb.Areas.Cursos.Controllers
         [HttpPost]
         public String GetCurso(DataPaginador<TCursos> model)
         {
-            if (model.Input.Nombre != null && model.Input.Descripcion != null && model.Input.CategoriaID > 0)
+            if (model.Input.Curso != null && model.Input.Informacion != null && model.Input.CategoriaID > 0)
             {
                 if (model.Input.Horas.Equals(0))
                 {

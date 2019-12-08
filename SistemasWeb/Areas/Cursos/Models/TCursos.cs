@@ -13,10 +13,10 @@ namespace SistemasWeb.Areas.Cursos.Models
     {
         [Key]
         public int CursoID { get; set; }
-        [Required(ErrorMessage = "El campo nombre es obligatorio.")]
-        public string Nombre { get; set; }
-        [Required(ErrorMessage = "El campo descripcion es obligatorio.")]
-        public string Descripcion { get; set; }
+        [Required(ErrorMessage = "El campo curso es obligatorio.")]
+        public string Curso { get; set; }
+        [Required(ErrorMessage = "El campo informacion es obligatorio.")]
+        public string Informacion { get; set; }
         [Required(ErrorMessage = "El campo horas es obligatorio.")]
         public byte Horas { get; set; }
         [Required(ErrorMessage = "El campo costo es obligatorio.")]

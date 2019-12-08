@@ -57,7 +57,7 @@ namespace SistemasWeb.Library
                 listCategoria = this.context._TCategoria.ToList();
             }else
             {
-                listCategoria = this.context._TCategoria.Where(c => c.Nombre.StartsWith(valor)).ToList();
+                listCategoria = this.context._TCategoria.Where(c => c.Categoria.StartsWith(valor)).ToList();
             }
 
             return listCategoria;
@@ -122,7 +122,7 @@ namespace SistemasWeb.Library
             foreach (var item in categorias)
             {
                 _selectList.Add(new SelectListItem {
-                    Text = item.Nombre,
+                    Text = item.Categoria,
                     Value = item.CategoriaID.ToString()
                 });
             }

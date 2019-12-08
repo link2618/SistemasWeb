@@ -11,8 +11,8 @@ namespace SistemasWeb.Areas.Categorias.Models
     {
         [Key]
         public int CategoriaID { get; set; }
-        [Required(ErrorMessage ="El nombre es Obligatorio.")]
-        public string Nombre { get; set; }
+        [Required(ErrorMessage ="La categoria es Obligatoria.")]
+        public string Categoria { get; set; }
         [Required(ErrorMessage = "La descriocion es Obligatoria.")]
         public string Descripcion { get; set; }
         public Boolean Estado { get; set; } = true;

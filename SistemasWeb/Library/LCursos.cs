@@ -33,8 +33,8 @@ namespace SistemasWeb.Library
                     var imageByte = await _image.ByteAvatarImageAsync(model.AvatarImage, environment);
                     var curso = new TCursos
                     {
-                        Nombre = model.Input.Nombre,
-                        Descripcion = model.Input.Descripcion,
+                        Curso = model.Input.Curso,
+                        Informacion = model.Input.Informacion,
                         Horas = model.Input.Horas,
                         Costo = model.Input.Costo,
                         Estado = model.Input.Estado,
@@ -58,8 +58,8 @@ namespace SistemasWeb.Library
                     var curso = new TCursos
                     {
                         CursoID = model.Input.CursoID,
-                        Nombre = model.Input.Nombre,
-                        Descripcion = model.Input.Descripcion,
+                        Curso = model.Input.Curso,
+                        Informacion = model.Input.Informacion,
                         Horas = model.Input.Horas,
                         Costo = model.Input.Costo,
                         Estado = model.Input.Estado,
@@ -92,7 +92,7 @@ namespace SistemasWeb.Library
             }
             else
             {
-                listCursos = context._TCursos.Where(c => c.Nombre.StartsWith(search)).ToList();
+                listCursos = context._TCursos.Where(c => c.Curso.StartsWith(search)).ToList();
             }
             return listCursos;
         }

@@ -75,7 +75,7 @@ namespace SistemasWeb.Areas.Categorias.Controllers
         [HttpPost]
         public String GetCategorias(DataPaginador<TCategoria> model) 
         {
-            if (model.Input.Nombre != null && model.Input.Descripcion != null) 
+            if (model.Input.Categoria != null && model.Input.Descripcion != null) 
             {
                 var data = _lcategoria.RegistrarCategoria(model.Input);
                 return JsonConvert.SerializeObject(data);

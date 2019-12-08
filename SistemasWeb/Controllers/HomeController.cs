@@ -7,13 +7,18 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SistemasWeb.Areas.Cursos.Models;
 using SistemasWeb.Data;
+using SistemasWeb.Library;
 using SistemasWeb.Models;
 
 namespace SistemasWeb.Controllers
 {
     public class HomeController : Controller
     {
+        private LCursos _curso;
+        private static DataPaginador<TCursos> models;
+
         //private readonly ILogger<HomeController> _logger;
         private readonly SignInManager<IdentityUser> _signInManager;
 
@@ -27,13 +32,36 @@ namespace SistemasWeb.Controllers
         {
             //_serviceProvider = serviceProvider;
             _signInManager = signInManager;
-
+            _curso = new LCursos(context, null);
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int id, string Search)
         {
+            Object[] objects = new Object[3];
+            var data = _curso.getTCursos(Search);
+
+            if (0 < data.Count)
+            {
+                var url = Request.Scheme + "://" + Request.Host.Value;
+                objects = new LPaginador<TCursos>().paginador(data, id, 10, "", "Home", "Index", url);
+            }
+            else
+            {
+                objects[0] = "No hay datos que mostrar";
+                objects[1] = "No hay datos que mostrar";
+                objects[2] = new List<TCursos>();
+            }
+
+            models = new DataPaginador<TCursos>
+            {
+                List = (List<TCursos>)objects[2],
+                Pagi_info = (String)objects[0],
+                Pagi_navegacion = (String)objects[1],
+                Input = new TCursos(),
+            };
+
             //await CreateRolesAsync(_serviceProvider);
-            return View();
+            return View(models);
         }
 
         public IActionResult Privacy()

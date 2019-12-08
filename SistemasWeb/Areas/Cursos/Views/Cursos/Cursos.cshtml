@@ -54,10 +54,10 @@
                 @Html.DisplayNameFor(model => model.Input.Image)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Input.Nombre)
+                @Html.DisplayNameFor(model => model.Input.Curso)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Input.Descripcion)
+                @Html.DisplayNameFor(model => model.Input.Informacion)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Input.Estado)
@@ -78,10 +78,10 @@
                     <img class='img-fluid img-thumbnail circle' src="@image" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
+                    @Html.DisplayFor(modelItem => item.Curso)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
+                    @Html.DisplayFor(modelItem => item.Informacion)
                 </td>
                 <td>
                     <form asp-area="Cursos" asp-controller="Cursos" asp-action="UpdateEstado" method="post">
