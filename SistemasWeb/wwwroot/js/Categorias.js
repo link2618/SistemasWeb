@@ -30,7 +30,7 @@ class Categorias {
     EditCategoria(data)
     {
         document.getElementById("myModalLabel").innerHTML = "Editar categoria";
-        document.getElementById("catNombre").value = data.Nombre;
+        document.getElementById("catNombre").value = data.Categoria;
         document.getElementById("catDescripcion").value = data.Descripcion;
         document.getElementById("catEstado").checked = data.Estado; 
         document.getElementById("catCategoriaID").value = data.CategoriaID;

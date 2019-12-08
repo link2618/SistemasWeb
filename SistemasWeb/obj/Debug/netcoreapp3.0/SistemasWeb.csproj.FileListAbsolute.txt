@@ -148,3 +148,5 @@ E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razo
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Cursos\Views\Cursos\_ModalRegistrar.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Cursos\Views\Cursos\_ModalEliminar.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Principal\Views\Principal\Principal.cshtml.g.cs
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Views\Home\_Slider.cshtml.g.cs
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Views\Home\Detalles.cshtml.g.cs

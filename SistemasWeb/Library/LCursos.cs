@@ -146,5 +146,42 @@ namespace SistemasWeb.Library
             }
             return identityError;
         }
+
+        public DataCurso getTCurso(int id)
+        {
+            DataCurso dataCurso = null;
+            var query = context._TCategoria.Join(context._TCursos,
+                c => c.CategoriaID, //Categorias
+                t => t.CategoriaID, //Cursos
+                (c, t) => new {
+                    c.CategoriaID,
+                    c.Categoria,
+                    t.CursoID,
+                    t.Curso,
+                    t.Informacion,
+                    t.Horas,
+                    t.Costo,
+                    t.Estado,
+                    t.Image
+                }).Where(d => d.CursoID.Equals(id)).ToList();
+
+            if (!query.Count.Equals(0))
+            {
+                var data = query.Last(); //se obtiene el ultimo elemento
+                dataCurso = new DataCurso
+                {
+                    CursoID = data.CursoID,
+                    Curso = data.Curso,
+                    Informacion = data.Informacion,
+                    Horas = data.Horas,
+                    Costo = data.Costo,
+                    Estado = data.Estado,
+                    Image = data.Image,
+                    Categoria = data.Categoria,
+                };
+            }
+
+            return dataCurso;
+        }
     }
 }

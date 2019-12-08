@@ -1,0 +1,65 @@
+﻿@model DataCurso
+@{
+    ViewData["Title"] = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var image = "data:image/jpg;base64," + Convert.ToBase64String(Model.Image, 0, Model.Image.Length);
+}
+
+    <div class="container">
+        <h1>Detalles</h1>
+
+        <div class="row">
+            <div class="col-sm">
+
+                <div class="card" style="width: 21rem;">
+                    <img class='img-fluid img-thumbnail ' src="@image" />
+
+                    <div class="card-body">
+                        <table class="tableCursos">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h5>@Model.Curso</h5>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        @if (Model.Estado)
+                                        {
+                                            <p class="text-success">Disponible.</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-danger">No disponible.</p>
+                                        }
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <h5>@Model.Costo </h5>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <form id="fcontact" method="POST" action="obtener">
+                                            <input type="hidden" value="" name="cursoid" size="1" />
+                                            <input type="submit" class="btn btn-success btn-sm" value="Obtener">
+                                        </form>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+

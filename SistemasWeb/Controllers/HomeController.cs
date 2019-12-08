@@ -35,10 +35,10 @@ namespace SistemasWeb.Controllers
             _curso = new LCursos(context, null);
         }
 
-        public IActionResult Index(int id, string Search)
+        public IActionResult Index(int id, string filtrar)
         {
             Object[] objects = new Object[3];
-            var data = _curso.getTCursos(Search);
+            var data = _curso.getTCursos(filtrar);
 
             if (0 < data.Count)
             {
@@ -62,6 +62,12 @@ namespace SistemasWeb.Controllers
 
             //await CreateRolesAsync(_serviceProvider);
             return View(models);
+        }
+
+        public IActionResult Detalles(int id)
+        {
+            var model = _curso.getTCurso(id);
+            return View(model);
         }
 
         public IActionResult Privacy()
