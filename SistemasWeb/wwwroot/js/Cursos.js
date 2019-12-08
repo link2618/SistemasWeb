@@ -10,8 +10,8 @@ class Cursos extends Uploadpicture {
 
     RegistrarCurso() {
         var data = new FormData();
-        data.append('Input.Nombre', $("#curNombre").val());
-        data.append('Input.Descripcion', $("#curDescripcion").val());
+        data.append('Input.Curso', $("#curNombre").val());
+        data.append('Input.Informacion', $("#curDescripcion").val());
         data.append('Input.Horas', $("#curHoras").val());
         data.append('Input.Costo', $("#curCosto").val());
         data.append('Input.Estado', document.getElementById("curEstado").checked);
@@ -51,8 +51,8 @@ class Cursos extends Uploadpicture {
         document.getElementById("myModalLabel").innerHTML = "Editar Curso";
 
         let j = 1;
-        $("#curNombre").val(curso.Nombre);
-        $("#curDescripcion").val(curso.Descripcion);
+        $("#curNombre").val(curso.Curso);
+        $("#curDescripcion").val(curso.Informacion);
         $("#curHoras").val(curso.Horas);
         $("#curCosto").val(curso.Costo);
         $("#curEstado").prop("checked", curso.Estado);
