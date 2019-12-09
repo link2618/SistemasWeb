@@ -63,7 +63,11 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a asp-route-id="@item.CursoID" asp-action="Detalles" class="btn btn-success btn-sm">Obtener</a>
+                                            <form asp-action="Obtener" method="post">
+                                                <input type="submit" value="Obtener" class="btn btn-success Obtener">
+                                                <input type="hidden" name="cursoID" value="@item.CursoID" />
+                                                <input type="hidden" name="vista" value="1" />
+                                            </form>
                                         </td>
                                     </tr>
                                 </tbody>

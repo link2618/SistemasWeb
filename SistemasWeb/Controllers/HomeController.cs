@@ -18,9 +18,13 @@ namespace SistemasWeb.Controllers
     {
         private LCursos _curso;
         private static DataPaginador<TCursos> models;
+        private static DataCurso _dataCurso;
+        private SignInManager<IdentityUser> _signInManager;
+        private UserManager<IdentityUser> _userManager;
+        private static IdentityError identityError;
 
         //private readonly ILogger<HomeController> _logger;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        //private readonly SignInManager<IdentityUser> _signInManager;
 
         //public HomeController(ILogger<HomeController> logger)
         //{
@@ -32,6 +36,7 @@ namespace SistemasWeb.Controllers
         {
             //_serviceProvider = serviceProvider;
             _signInManager = signInManager;
+            _userManager = userManager;
             _curso = new LCursos(context, null);
         }
 
@@ -60,6 +65,11 @@ namespace SistemasWeb.Controllers
                 Input = new TCursos(),
             };
 
+            if (identityError != null)
+            {
+                models.Pagi_info = identityError.Description;
+                identityError = null;
+            }
             //await CreateRolesAsync(_serviceProvider);
             return View(models);
         }
@@ -68,6 +78,42 @@ namespace SistemasWeb.Controllers
         {
             var model = _curso.getTCurso(id);
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Obtener(int cursoID, int vista)
+        {
+            if (_signInManager.IsSignedIn(User))
+            {
+                var user = await _userManager.GetUserAsync(User);
+                var idUser = await _userManager.GetUserIdAsync(user);
+                var data = _curso.Inscripcion(idUser, cursoID);
+
+                //Comprobamos si el usuario se registro de forma correcta
+                if (data.Description.Equals("Done"))
+                {
+                    return Redirect("/Inscripciones/Inscripciones?area=Inscripciones");
+                }
+                else
+                {
+                    identityError = data;
+                    if (vista.Equals(1))
+                    {
+                        return Redirect("/Home/Index");
+                    }
+                    else
+                    {
+                        _dataCurso = _curso.getTCurso(cursoID);
+                        _dataCurso.ErrorMessage = data.Description;
+                        return View("Detalles", _dataCurso);
+                    }
+                }
+            }
+            else
+            {
+                return Redirect("/Identity/Account/Login");
+            }
+
         }
 
         public IActionResult Privacy()

@@ -15,5 +15,6 @@ namespace SistemasWeb.Models
         public Boolean Estado { get; set; }
         public byte[] Image { get; set; }
         public string Categoria { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }

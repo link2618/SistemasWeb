@@ -10,6 +10,7 @@
         <h1>Detalles</h1>
 
         <div class="row">
+            @*Primera tarjeta con informacion del curso*@
             <div class="col-sm">
 
                 <div class="card" style="width: 21rem;">
@@ -45,9 +46,10 @@
 
                                 <tr>
                                     <td>
-                                        <form id="fcontact" method="POST" action="obtener">
-                                            <input type="hidden" value="" name="cursoid" size="1" />
-                                            <input type="submit" class="btn btn-success btn-sm" value="Obtener">
+                                        <form asp-action="Obtener" method="POST">
+                                            <input type="submit" value="Obtener" class="btn btn-success Obtener">
+                                            <input type="hidden" name="cursoID" value="@Model.CursoID" />
+                                            <input type="hidden" name="vista" value="2" />
                                         </form>
                                     </td>
                                 </tr>
@@ -55,10 +57,47 @@
                             </tbody>
                         </table>
                     </div>
-
+                    @Html.Raw(Model.ErrorMessage)
                 </div>
 
             </div>
+            @*Segunda tarjeta con mas descripcion del curso*@
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="tableCursos">
+                            <tbody>
+
+                                <tr>
+                                    <th>
+                                        Descripcion
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>@Model.Informacion</p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>
+                                        Categoria
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>@Model.Categoria</p>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>

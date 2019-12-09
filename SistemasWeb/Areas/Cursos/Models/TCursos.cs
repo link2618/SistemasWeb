@@ -1,4 +1,5 @@
 ﻿using SistemasWeb.Areas.Categorias.Models;
+using SistemasWeb.Areas.Inscripciones.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -29,5 +30,6 @@ namespace SistemasWeb.Areas.Cursos.Models
         [JsonIgnore]
         [IgnoreDataMember]
         public TCategoria Categoria { get; set; }
+        public ICollection<Inscripcion> Inscripcion { get; set; }
     }
 }

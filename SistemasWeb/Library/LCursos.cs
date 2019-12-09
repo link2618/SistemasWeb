@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using SistemasWeb.Areas.Cursos.Models;
+using SistemasWeb.Areas.Inscripciones.Models;
 using SistemasWeb.Data;
 using SistemasWeb.Models;
 
@@ -182,6 +183,45 @@ namespace SistemasWeb.Library
             }
 
             return dataCurso;
+        }
+
+        public IdentityError Inscripcion(string idUser, int cursoID)
+        {
+            IdentityError identityError;
+            try
+            {
+                //Miramos si esta suscrito en el curso
+                var cursoInscripcion = context._TInscripcion.Where(c => c.CursoID.Equals(cursoID) && c.EstudianteID.Equals(idUser)).ToList();
+                //Si no hace parte del curso se inscribe
+                if (cursoInscripcion.Count.Equals(0))
+                {
+                    var curso = getTCurso(cursoID);
+                    var inscripcion = new Inscripcion
+                    {
+                        EstudianteID = idUser,
+                        Fecha = DateTime.Now,
+                        Pago = curso.Costo,
+                        CursoID = curso.CursoID
+                    };
+                    context.Add(inscripcion);
+                    context.SaveChanges();
+                    identityError = new IdentityError { Description = "Done" };
+                }
+                else
+                {
+                    identityError = new IdentityError { Description = "Ya está suscrito en el curso" };
+                }
+            }
+            catch (Exception e)
+            {
+                identityError = new IdentityError
+                {
+                    Code = "Error",
+                    Description = e.Message
+                };
+            }
+
+            return identityError;
         }
     }
 }
