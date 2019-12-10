@@ -223,5 +223,92 @@ namespace SistemasWeb.Library
 
             return identityError;
         }
+
+        public List<DataCurso> Inscripciones(string idUser, String search)
+        {
+            List<DataCurso> cursos = new List<DataCurso>();
+            var inscripciones = context._TInscripcion.Where(c => c.EstudianteID.Equals(idUser)).ToList();
+
+            if (!inscripciones.Count.Equals(0))
+            {
+                inscripciones.ForEach(c =>
+                {
+                    if (search == null || search.Equals(""))
+                    {
+                        var query = context._TCategoria.Join(context._TCursos,
+                            c => c.CategoriaID,
+                            t => t.CategoriaID,
+                            (c, t) => new
+                            {
+                                c.CategoriaID,
+                                c.Categoria,
+                                t.CursoID,
+                                t.Curso,
+                                t.Informacion,
+                                t.Horas,
+                                t.Costo,
+                                t.Estado,
+                                t.Image
+
+                            }).Where(d => d.CursoID.Equals(c.CursoID)).ToList();
+
+                        if (!query.Count.Equals(0))
+                        {
+                            var data = query.Last();
+                            cursos.Add(new DataCurso
+                            {
+                                CursoID = data.CursoID,
+                                Curso = data.Curso,
+                                Informacion = data.Informacion,
+                                Horas = data.Horas,
+                                Costo = data.Costo,
+                                Estado = data.Estado,
+                                Image = data.Image,
+                                Categoria = data.Categoria,
+                            });
+                        }
+
+                    }
+                    else
+                    {
+                        var query = context._TCategoria.Join(context._TCursos,
+                            c => c.CategoriaID,
+                            t => t.CategoriaID,
+                            (c, t) => new
+                            {
+                                c.CategoriaID,
+                                c.Categoria,
+                                t.CursoID,
+                                t.Curso,
+                                t.Informacion,
+                                t.Horas,
+                                t.Costo,
+                                t.Estado,
+                                t.Image
+
+                            }).Where(d => d.CursoID.Equals(c.CursoID) && d.Curso.StartsWith(search)).ToList();
+
+                        if (!query.Count.Equals(0))
+                        {
+                            var data = query.Last();
+                            cursos.Add(new DataCurso
+                            {
+                                CursoID = data.CursoID,
+                                Curso = data.Curso,
+                                Informacion = data.Informacion,
+                                Horas = data.Horas,
+                                Costo = data.Costo,
+                                Estado = data.Estado,
+                                Image = data.Image,
+                                Categoria = data.Categoria,
+                            });
+                        }
+                    }
+                });
+            }
+
+            return cursos;
+        }
+
     }
 }

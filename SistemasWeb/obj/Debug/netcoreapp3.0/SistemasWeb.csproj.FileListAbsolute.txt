@@ -131,8 +131,6 @@ E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\bin\Debug\netcoreapp3.0\ru\M
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\bin\Debug\netcoreapp3.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\bin\Debug\netcoreapp3.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\bin\Debug\netcoreapp3.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\SistemasWeb.MvcApplicationPartsAssemblyInfo.cs
-E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\SistemasWeb.MvcApplicationPartsAssemblyInfo.cache
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
@@ -151,3 +149,12 @@ E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razo
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Views\Home\_Slider.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Views\Home\Detalles.cshtml.g.cs
 E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Inscripciones\Views\Inscripciones\Inscripciones.cshtml.g.cs
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Inscripciones\Views\_ViewImports.cshtml.g.cs
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Inscripciones\Views\Inscripciones\Detalles.cshtml.g.cs
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\bin\Debug\netcoreapp3.0\NPOI.OOXML.dll
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\bin\Debug\netcoreapp3.0\NPOI.OpenXml4Net.dll
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\bin\Debug\netcoreapp3.0\NPOI.OpenXmlFormats.dll
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\bin\Debug\netcoreapp3.0\NPOI.dll
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\bin\Debug\netcoreapp3.0\ICSharpCode.SharpZipLib.dll
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\SistemasWeb.MvcApplicationPartsAssemblyInfo.cs
+E:\Cursos\ASP .Net\Proyecto\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\SistemasWeb.MvcApplicationPartsAssemblyInfo.cache
